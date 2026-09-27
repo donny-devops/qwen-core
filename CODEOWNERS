@@ -1,0 +1,44 @@
+# Code Owners
+# This file defines individuals or teams that are responsible for code in this repository.
+# Read more: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Global owners
+* @donny-devops
+
+# Core application code
+/src/App.tsx @donny-devops
+/src/main.tsx @donny-devops
+
+# Components
+/src/components/ @donny-devops
+/src/components/Timer.tsx @donny-devops
+/src/components/Controls.tsx @donny-devops
+/src/components/Settings.tsx @donny-devops
+
+# Hooks
+/src/hooks/ @donny-devops
+/src/hooks/usePomodoro.ts @donny-devops
+/src/hooks/useLocalStorage.ts @donny-devops
+
+# Utilities
+/src/utils/ @donny-devops
+
+# Styling
+/src/index.css @donny-devops
+/tailwind.config.* @donny-devops
+
+# Configuration
+/package.json @donny-devops
+/tsconfig.json @donny-devops
+/vite.config.* @donny-devops
+
+# Documentation
+/*.md @donny-devops
+/docs/ @donny-devops
+
+# GitHub Actions & DevOps
+/.github/ @donny-devops
+Dockerfile @donny-devops
+docker-compose.yml @donny-devops
+*.yml @donny-devops
+*.yaml @donny-devops
