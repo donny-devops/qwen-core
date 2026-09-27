@@ -190,11 +190,17 @@ If you need help with your contribution:
 
 - Check existing issues and discussions
 - Ask in the GitHub Discussions
-- Reach out to maintainers
+- Reach out to the repository owner: **donny-devops**
 
 ## Recognition
 
 All contributors will be added to our [Contributors](#contributors) list. We believe in recognizing everyone who helps make QwenCore better!
+
+## Repository Owner
+
+This repository is owned and maintained by **donny-devops** (@donny-devops). All final decisions regarding the project rest with the owner.
+
+See [OWNERS.md](./OWNERS.md) for full ownership details.
 
 ## Questions?
 

@@ -206,8 +206,8 @@ This document outlines the planned features and future direction of QwenCore.
 
 Want to help build the roadmap? Check out:
 - [CONTRIBUTING.md](./CONTRIBUTING.md) - How to contribute
-- [GitHub Issues](https://github.com/yourusername/qwencore/issues) - Report bugs & request features
-- [GitHub Discussions](https://github.com/yourusername/qwencore/discussions) - Share ideas
+- [GitHub Issues](https://github.com/donny-devops/qwencore/issues) - Report bugs & request features
+- [GitHub Discussions](https://github.com/donny-devops/qwencore/discussions) - Share ideas
 
 ## Prioritization
 
@@ -222,7 +222,7 @@ Features are prioritized based on:
 
 This roadmap is a living document. We welcome your feedback and suggestions!
 
-- **Email**: roadmap@qwencore.dev
+- **Email**: roadmap@donny-devops.dev
 - **GitHub Discussions**: Share your ideas
 - **Twitter**: @qwencore
 

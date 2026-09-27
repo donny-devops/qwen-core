@@ -613,7 +613,7 @@ vercel rollback
 ### Contact
 
 - **DevOps Lead**: donny-devops
-- **Email**: devops@qwencore.dev
+- **Email**: owner@donny-devops.dev
 - **GitHub**: @donny-devops
 
 ### Escalation Path

@@ -322,10 +322,11 @@ qwencore/
 
 ## 📞 Support & Contact
 
-- **Email**: support@qwencore.dev
-- **GitHub**: https://github.com/yourusername/qwencore
-- **Issues**: https://github.com/yourusername/qwencore/issues
-- **Discussions**: https://github.com/yourusername/qwencore/discussions
+- **Owner**: donny-devops
+- **Email**: owner@donny-devops.dev
+- **GitHub**: https://github.com/donny-devops/qwencore
+- **Issues**: https://github.com/donny-devops/qwencore/issues
+- **Discussions**: https://github.com/donny-devops/qwencore/discussions
 
 ---
 

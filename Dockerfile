@@ -66,8 +66,11 @@ EXPOSE 5173
 # Start development server
 CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
 
-# Labels
-LABEL maintainer="donny-devops"
+# Labels - Ownership & Metadata
+LABEL maintainer="donny-devops <owner@donny-devops.dev>"
+LABEL org.opencontainers.image.authors="donny-devops"
 LABEL org.opencontainers.image.source="https://github.com/donny-devops/qwencore"
+LABEL org.opencontainers.image.url="https://github.com/donny-devops/qwencore"
 LABEL org.opencontainers.image.description="QwenCore - Pomodoro Web Tool"
 LABEL org.opencontainers.image.licenses="MIT"
+LABEL org.opencontainers.image.vendor="donny-devops"

@@ -160,9 +160,9 @@ Absolutely! QwenCore is open-source under the MIT license. Fork it, modify it, m
 ### Where can I get help?
 - Check this FAQ
 - Read the [README.md](./README.md)
-- Search [GitHub Issues](https://github.com/yourusername/qwencore/issues)
-- Ask in [GitHub Discussions](https://github.com/yourusername/qwencore/discussions)
-- Email: support@qwencore.dev
+- Search [GitHub Issues](https://github.com/donny-devops/qwencore/issues)
+- Ask in [GitHub Discussions](https://github.com/donny-devops/qwencore/discussions)
+- Email: support@donny-devops.dev
 
 ### How do I report a bug?
 Create an issue on GitHub with:
@@ -177,4 +177,4 @@ Create an issue on GitHub or start a discussion. We love hearing your ideas!
 
 ---
 
-**Still have questions?** Reach out to us at support@qwencore.dev or join the discussion on GitHub!
+**Still have questions?** Reach out to us at support@donny-devops.dev or join the discussion on GitHub!

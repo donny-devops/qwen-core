@@ -14,7 +14,7 @@ We take the security of QwenCore seriously. If you believe you have found a secu
 
 **Please do NOT report security vulnerabilities through public GitHub issues.**
 
-Instead, please report them via email to: **security@qwencore.dev**
+Instead, please report them via email to: **security@donny-devops.dev**
 
 You should receive a response within 48 hours. If for some reason you do not, please follow up via email to ensure we received your original message.
 
@@ -135,9 +135,9 @@ QwenCore is designed to be:
 
 ### Contact
 
-For security concerns: **security@qwencore.dev**
+For security concerns: **security@donny-devops.dev**
 
-For general questions: **support@qwencore.dev**
+For general questions: **support@donny-devops.dev**
 
 ---
 

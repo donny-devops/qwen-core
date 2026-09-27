@@ -433,10 +433,11 @@ qwencore/
 - **Roadmap**: ROADMAP.md
 
 ### Contact
-- **Email**: support@qwencore.dev
-- **Security**: security@qwencore.dev
-- **GitHub**: https://github.com/yourusername/qwencore
-- **Issues**: https://github.com/yourusername/qwencore/issues
+- **Owner**: donny-devops
+- **Email**: owner@donny-devops.dev
+- **Security**: security@donny-devops.dev
+- **GitHub**: https://github.com/donny-devops/qwencore
+- **Issues**: https://github.com/donny-devops/qwencore/issues
 
 ---
 

@@ -99,4 +99,4 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 **Note**: This changelog is maintained manually. For automated release notes, see GitHub Releases.
 
-[1.0.0]: https://github.com/yourusername/qwencore/releases/tag/v1.0.0
+[1.0.0]: https://github.com/donny-devops/qwencore/releases/tag/v1.0.0

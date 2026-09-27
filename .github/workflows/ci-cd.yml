@@ -1,4 +1,6 @@
 name: CI/CD Pipeline
+# Repository Owner: donny-devops
+# Contact: owner@donny-devops.dev
 
 on:
   push:
@@ -8,6 +10,7 @@ on:
 
 env:
   NODE_VERSION: '20'
+  REPO_OWNER: 'donny-devops'
 
 jobs:
   # ============================================================================

@@ -1,8 +1,11 @@
 # 🍅 QwenCore - Pomodoro Web Tool
 
+> **Repository Owner**: [donny-devops](https://github.com/donny-devops) | **Status**: Production Ready | **License**: MIT
+
 A beautiful, feature-rich Pomodoro timer application built with React, TypeScript, and Tailwind CSS. Enhance your productivity with focused work sessions and intelligent break management.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Owner](https://img.shields.io/badge/owner-donny--devops-purple.svg)
 ![React](https://img.shields.io/badge/React-18.2-blue.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-blue.svg)
@@ -42,7 +45,7 @@ A beautiful, feature-rich Pomodoro timer application built with React, TypeScrip
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/qwencore.git
+git clone https://github.com/donny-devops/qwencore.git
 cd qwencore
 
 # Install dependencies
@@ -194,17 +197,20 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 - Icons by Lucide React
 - Styling by Tailwind CSS
 
-## 👨‍💻 Author & Maintainer
+## 👑 Repository Owner & Lead Developer
 
-**donny-devops** - DevOps Engineer & Project Maintainer
+**donny-devops** - Repository Owner, Lead Developer & DevOps Engineer
 
 - 🐙 GitHub: [@donny-devops](https://github.com/donny-devops)
-- 📧 Email: devops@qwencore.dev
+- 📧 Email: owner@donny-devops.dev
+- 📜 Ownership: [OWNERS.md](./OWNERS.md)
 - 🚀 DevOps Guide: [DEVOPS.md](./DEVOPS.md)
+
+This repository is owned and maintained by donny-devops. All rights reserved under the MIT License.
 
 ## 📞 Support
 
-- 📧 Email: support@qwencore.dev
+- 📧 Email: support@donny-devops.dev
 - 🐛 Issues: [GitHub Issues](https://github.com/donny-devops/qwencore/issues)
 - 💬 Discussions: [GitHub Discussions](https://github.com/donny-devops/qwencore/discussions)
 
