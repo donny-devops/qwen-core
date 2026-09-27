@@ -83,7 +83,7 @@ function App() {
     const modeLabel = state.mode === 'focus' ? '🍅 Focus' : state.mode === 'shortBreak' ? '☕ Short Break' : '🌿 Long Break';
     document.title = state.isRunning 
       ? `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} - ${modeLabel}`
-      : 'FocusFlow - Pomodoro Timer';
+      : 'QwenCore - Pomodoro Timer';
   }, [state.timeLeft, state.isRunning, state.mode]);
 
   return (
@@ -100,7 +100,7 @@ function App() {
         {/* Header */}
         <div className="flex items-center justify-between w-full">
           <h1 className="text-2xl font-bold text-white/90 tracking-tight">
-            🍅 FocusFlow
+            🍅 QwenCore
           </h1>
           <div className="flex items-center gap-2">
             <button
