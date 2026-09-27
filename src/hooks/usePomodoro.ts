@@ -154,6 +154,14 @@ export function usePomodoro(onFocusComplete: (duration: number) => void, onParti
     });
   }, [getDurationForMode, onPartialFocus]);
 
+  const getDurationForModeForSettings = (mode: TimerMode, s: TimerSettings): number => {
+    switch (mode) {
+      case 'focus': return s.focusDuration * 60;
+      case 'shortBreak': return s.shortBreakDuration * 60;
+      case 'longBreak': return s.longBreakDuration * 60;
+    }
+  };
+
   const updateSettings = useCallback((newSettings: Partial<TimerSettings>) => {
     setSettings(prev => {
       const updated = { ...prev, ...newSettings };
@@ -168,14 +176,6 @@ export function usePomodoro(onFocusComplete: (duration: number) => void, onParti
       return updated;
     });
   }, [setSettings]);
-
-  const getDurationForModeForSettings = (mode: TimerMode, s: TimerSettings): number => {
-    switch (mode) {
-      case 'focus': return s.focusDuration * 60;
-      case 'shortBreak': return s.shortBreakDuration * 60;
-      case 'longBreak': return s.longBreakDuration * 60;
-    }
-  };
 
   return {
     state,

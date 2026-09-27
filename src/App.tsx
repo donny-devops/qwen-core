@@ -1,22 +1,31 @@
 import { useState, useEffect, useCallback } from 'react';
 import { usePomodoro } from './hooks/usePomodoro';
-import { useTodayStats } from './hooks/useLocalStorage';
+import { useTodayStats, useLocalStorage } from './hooks/useLocalStorage';
 import { Timer } from './components/Timer';
 import { Controls } from './components/Controls';
 import { ModeSelector } from './components/ModeSelector';
 import { Settings } from './components/Settings';
 import { Stats } from './components/Stats';
-import { Settings as SettingsIcon, Keyboard } from 'lucide-react';
+import { TaskList } from './components/TaskList';
+import { SessionHistory, useSessionHistory } from './components/SessionHistory';
+import { Settings as SettingsIcon, Keyboard, Volume2, VolumeX } from 'lucide-react';
 import { playNotificationSound } from './utils/sounds';
 
 function App() {
   const [showSettings, setShowSettings] = useState(false);
   const [showShortcuts, setShowShortcuts] = useState(false);
+  const [soundEnabled, setSoundEnabled] = useLocalStorage('pomodoro-sound-enabled', true);
   const { stats, addFocusSession, addPartialFocus } = useTodayStats();
+  const { addSession } = useSessionHistory();
   
   const handleFocusComplete = useCallback((duration: number) => {
     addFocusSession(duration);
-    playNotificationSound();
+    addSession('focus', duration);
+    
+    if (soundEnabled) {
+      playNotificationSound();
+    }
+    
     // Browser notification
     if (Notification.permission === 'granted') {
       new Notification('🍅 Focus session complete!', {
@@ -24,7 +33,7 @@ function App() {
         icon: '🍅',
       });
     }
-  }, [addFocusSession]);
+  }, [addFocusSession, addSession, soundEnabled]);
 
   const {
     state,
@@ -109,6 +118,14 @@ function App() {
           </div>
           <div className="flex items-center gap-2">
             <button
+              onClick={() => setSoundEnabled(!soundEnabled)}
+              className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white/70 hover:text-white transition-all duration-200 backdrop-blur-sm"
+              aria-label={soundEnabled ? "Mute sound" : "Unmute sound"}
+              title={soundEnabled ? "Mute sound" : "Unmute sound"}
+            >
+              {soundEnabled ? <Volume2 size={20} /> : <VolumeX size={20} />}
+            </button>
+            <button
               onClick={() => setShowShortcuts(!showShortcuts)}
               className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white/70 hover:text-white transition-all duration-200 backdrop-blur-sm"
               aria-label="Keyboard shortcuts"
@@ -179,6 +196,12 @@ function App() {
             onClose={() => setShowSettings(false)}
           />
         )}
+
+        {/* Task List */}
+        <TaskList />
+
+        {/* Session History */}
+        <SessionHistory />
 
         {/* Stats */}
         <Stats stats={stats} />

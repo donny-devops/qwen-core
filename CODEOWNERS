@@ -1,0 +1,40 @@
+# Code Owners
+# This file defines individuals or teams that are responsible for code in this repository.
+# Read more: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Global owners
+* @qwencore/maintainers
+
+# Core application code
+/src/App.tsx @qwencore/core-team
+/src/main.tsx @qwencore/core-team
+
+# Components
+/src/components/ @qwencore/frontend-team
+/src/components/Timer.tsx @qwencore/core-team
+/src/components/Controls.tsx @qwencore/frontend-team
+/src/components/Settings.tsx @qwencore/frontend-team
+
+# Hooks
+/src/hooks/ @qwencore/core-team
+/src/hooks/usePomodoro.ts @qwencore/core-team
+/src/hooks/useLocalStorage.ts @qwencore/core-team
+
+# Utilities
+/src/utils/ @qwencore/core-team
+
+# Styling
+/src/index.css @qwencore/design-team
+/tailwind.config.* @qwencore/design-team
+
+# Configuration
+/package.json @qwencore/maintainers
+/tsconfig.json @qwencore/core-team
+/vite.config.* @qwencore/core-team
+
+# Documentation
+/*.md @qwencore/docs-team
+/docs/ @qwencore/docs-team
+
+# GitHub Actions
+/.github/ @qwencore/maintainers
