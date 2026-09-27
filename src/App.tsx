@@ -99,9 +99,14 @@ function App() {
       <div className="relative z-10 w-full max-w-lg mx-auto flex flex-col items-center gap-6">
         {/* Header */}
         <div className="flex items-center justify-between w-full">
-          <h1 className="text-2xl font-bold text-white/90 tracking-tight">
-            🍅 QwenCore
-          </h1>
+          <div>
+            <h1 className="text-2xl font-bold text-white/90 tracking-tight leading-tight">
+              🍅 QwenCore
+            </h1>
+            <p className="text-xs text-white/40 tracking-wider uppercase font-medium mt-0.5">
+              Pomodoro Web Tool
+            </p>
+          </div>
           <div className="flex items-center gap-2">
             <button
               onClick={() => setShowShortcuts(!showShortcuts)}
