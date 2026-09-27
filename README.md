@@ -194,11 +194,19 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 - Icons by Lucide React
 - Styling by Tailwind CSS
 
+## 👨‍💻 Author & Maintainer
+
+**donny-devops** - DevOps Engineer & Project Maintainer
+
+- 🐙 GitHub: [@donny-devops](https://github.com/donny-devops)
+- 📧 Email: devops@qwencore.dev
+- 🚀 DevOps Guide: [DEVOPS.md](./DEVOPS.md)
+
 ## 📞 Support
 
 - 📧 Email: support@qwencore.dev
-- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/qwencore/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/yourusername/qwencore/discussions)
+- 🐛 Issues: [GitHub Issues](https://github.com/donny-devops/qwencore/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/donny-devops/qwencore/discussions)
 
 ## 🗺️ Roadmap
 

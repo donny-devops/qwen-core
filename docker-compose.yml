@@ -1,0 +1,85 @@
+# Docker Compose for QwenCore
+# Author: donny-devops
+# Usage: docker-compose up -d
+
+version: '3.8'
+
+services:
+  # ============================================================================
+  # Production Service
+  # ============================================================================
+  qwencore-prod:
+    build:
+      context: .
+      target: production
+    container_name: qwencore-prod
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - qwencore-network
+    labels:
+      - "com.qwencore.environment=production"
+      - "com.qwencore.maintainer=donny-devops"
+
+  # ============================================================================
+  # Development Service
+  # ============================================================================
+  qwencore-dev:
+    build:
+      context: .
+      target: development
+    container_name: qwencore-dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_HOST=0.0.0.0
+    command: npm run dev -- --host 0.0.0.0
+    networks:
+      - qwencore-network
+    profiles:
+      - dev
+    labels:
+      - "com.qwencore.environment=development"
+      - "com.qwencore.maintainer=donny-devops"
+
+  # ============================================================================
+  # Nginx Reverse Proxy (optional)
+  # ============================================================================
+  qwencore-proxy:
+    image: nginx:alpine
+    container_name: qwencore-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/proxy.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./docker/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - qwencore-prod
+    networks:
+      - qwencore-network
+    profiles:
+      - proxy
+    labels:
+      - "com.qwencore.environment=proxy"
+      - "com.qwencore.maintainer=donny-devops"
+
+networks:
+  qwencore-network:
+    driver: bridge
+    labels:
+      - "com.qwencore.network=true"
+      - "com.qwencore.maintainer=donny-devops"

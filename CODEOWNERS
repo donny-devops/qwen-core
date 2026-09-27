@@ -3,38 +3,42 @@
 # Read more: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
 
 # Global owners
-* @qwencore/maintainers
+* @donny-devops
 
 # Core application code
-/src/App.tsx @qwencore/core-team
-/src/main.tsx @qwencore/core-team
+/src/App.tsx @donny-devops
+/src/main.tsx @donny-devops
 
 # Components
-/src/components/ @qwencore/frontend-team
-/src/components/Timer.tsx @qwencore/core-team
-/src/components/Controls.tsx @qwencore/frontend-team
-/src/components/Settings.tsx @qwencore/frontend-team
+/src/components/ @donny-devops
+/src/components/Timer.tsx @donny-devops
+/src/components/Controls.tsx @donny-devops
+/src/components/Settings.tsx @donny-devops
 
 # Hooks
-/src/hooks/ @qwencore/core-team
-/src/hooks/usePomodoro.ts @qwencore/core-team
-/src/hooks/useLocalStorage.ts @qwencore/core-team
+/src/hooks/ @donny-devops
+/src/hooks/usePomodoro.ts @donny-devops
+/src/hooks/useLocalStorage.ts @donny-devops
 
 # Utilities
-/src/utils/ @qwencore/core-team
+/src/utils/ @donny-devops
 
 # Styling
-/src/index.css @qwencore/design-team
-/tailwind.config.* @qwencore/design-team
+/src/index.css @donny-devops
+/tailwind.config.* @donny-devops
 
 # Configuration
-/package.json @qwencore/maintainers
-/tsconfig.json @qwencore/core-team
-/vite.config.* @qwencore/core-team
+/package.json @donny-devops
+/tsconfig.json @donny-devops
+/vite.config.* @donny-devops
 
 # Documentation
-/*.md @qwencore/docs-team
-/docs/ @qwencore/docs-team
+/*.md @donny-devops
+/docs/ @donny-devops
 
-# GitHub Actions
-/.github/ @qwencore/maintainers
+# GitHub Actions & DevOps
+/.github/ @donny-devops
+Dockerfile @donny-devops
+docker-compose.yml @donny-devops
+*.yml @donny-devops
+*.yaml @donny-devops
