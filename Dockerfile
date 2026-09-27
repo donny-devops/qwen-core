@@ -6,7 +6,7 @@
 # ------------------------------------------------------------------------------
 # Stage 1: Build the application
 # ------------------------------------------------------------------------------
-FROM node:20-alpine AS builder
+FROM node:26-alpine AS builder
 
 # Set working directory
 WORKDIR /app
@@ -47,7 +47,7 @@ CMD ["nginx", "-g", "daemon off;"]
 # ------------------------------------------------------------------------------
 # Stage 3: Development image (optional)
 # ------------------------------------------------------------------------------
-FROM node:20-alpine AS development
+FROM node:26-alpine AS development
 
 WORKDIR /app
 
