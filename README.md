@@ -45,8 +45,8 @@ A beautiful, feature-rich Pomodoro timer application built with React, TypeScrip
 
 ```bash
 # Clone the repository
-git clone https://github.com/donny-devops/qwencore.git
-cd qwencore
+git clone https://github.com/donny-devops/qwen-core.git
+cd qwen-core
 
 # Install dependencies
 npm install
@@ -108,7 +108,7 @@ The built files will be in the `dist/` directory.
 ### Project Structure
 
 ```
-qwencore/
+qwen-core/
 ├── src/
 │   ├── components/          # React components
 │   │   ├── Timer.tsx        # Main timer display
@@ -202,7 +202,7 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 **donny-devops** - Repository Owner, Lead Developer & DevOps Engineer
 
 - 🐙 GitHub: [@donny-devops](https://github.com/donny-devops)
-- 📧 Email: owner@donny-devops.dev
+- 📧 Email: adonis-jimenez@outlook.com
 - 📜 Ownership: [OWNERS.md](./OWNERS.md)
 - 🚀 DevOps Guide: [DEVOPS.md](./DEVOPS.md)
 
@@ -210,9 +210,9 @@ This repository is owned and maintained by donny-devops. All rights reserved und
 
 ## 📞 Support
 
-- 📧 Email: support@donny-devops.dev
-- 🐛 Issues: [GitHub Issues](https://github.com/donny-devops/qwencore/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/donny-devops/qwencore/discussions)
+- 📧 Email: adonis-jimenez@outlook.com
+- 🐛 Issues: [GitHub Issues](https://github.com/donny-devops/qwen-core/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/donny-devops/qwen-core/discussions)
 
 ## 🗺️ Roadmap
 
