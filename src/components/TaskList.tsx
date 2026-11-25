@@ -11,40 +11,64 @@ interface Task {
   pomodorosCompleted?: number;
 }
 
+const MAX_TASKS = 100;
+const MAX_TASK_LENGTH = 280;
+
+function isTask(value: unknown): value is Task {
+  if (!value || typeof value !== 'object') return false;
+  const task = value as Task;
+  return typeof task.id === 'string' && task.id.length > 0 && task.id.length <= 64
+    && typeof task.text === 'string'
+    && typeof task.completed === 'boolean'
+    && typeof task.createdAt === 'string';
+}
+
+function normalizeTasks(value: unknown): Task[] {
+  if (!Array.isArray(value)) return [];
+  return value.filter(isTask).slice(0, MAX_TASKS).map((task) => ({
+    ...task,
+    text: task.text.slice(0, MAX_TASK_LENGTH),
+  }));
+}
+
 export function TaskList() {
-  const [tasks, setTasks] = useLocalStorage<Task[]>('pomodoro-tasks', []);
+  const [storedTasks, setTasks] = useLocalStorage<unknown>('pomodoro-tasks', []);
+  const tasks = normalizeTasks(storedTasks);
   const [newTask, setNewTask] = useState('');
   const [showCompleted, setShowCompleted] = useState(false);
 
+  const writeTasks = (next: Task[]) => setTasks(normalizeTasks(next));
+
   const addTask = () => {
-    if (!newTask.trim()) return;
+    const text = newTask.trim().slice(0, MAX_TASK_LENGTH);
+    if (!text || tasks.length >= MAX_TASKS) return;
     
     const task: Task = {
       id: Date.now().toString(),
-      text: newTask.trim(),
+      text,
       completed: false,
       createdAt: new Date().toISOString(),
       pomodorosEstimated: 1,
       pomodorosCompleted: 0,
     };
     
-    setTasks([...tasks, task]);
+    writeTasks([...tasks, task]);
     setNewTask('');
   };
 
   const toggleTask = (id: string) => {
-    setTasks(tasks.map(t => 
+    writeTasks(tasks.map(t => 
       t.id === id ? { ...t, completed: !t.completed } : t
     ));
   };
 
   const deleteTask = (id: string) => {
-    setTasks(tasks.filter(t => t.id !== id));
+    writeTasks(tasks.filter(t => t.id !== id));
   };
 
   const incrementPomodoro = (id: string) => {
-    setTasks(tasks.map(t => 
-      t.id === id ? { ...t, pomodorosCompleted: (t.pomodorosCompleted || 0) + 1 } : t
+    writeTasks(tasks.map(t => 
+      t.id === id ? { ...t, pomodorosCompleted: Math.min((t.pomodorosCompleted || 0) + 1, 99) } : t
     ));
   };
 
