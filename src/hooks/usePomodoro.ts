@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useLocalStorage } from './useLocalStorage';
 
 export type TimerMode = 'focus' | 'shortBreak' | 'longBreak';
@@ -29,8 +29,26 @@ const DEFAULT_SETTINGS: TimerSettings = {
   autoStartFocus: false,
 };
 
+function clampInt(value: number, min: number, max: number, fallback: number): number {
+  if (!Number.isFinite(value)) return fallback;
+  return Math.min(max, Math.max(min, Math.trunc(value)));
+}
+
+function sanitizeSettings(input: Partial<TimerSettings> | null | undefined): TimerSettings {
+  const source = { ...DEFAULT_SETTINGS, ...(input ?? {}) };
+  return {
+    focusDuration: clampInt(source.focusDuration, 1, 180, DEFAULT_SETTINGS.focusDuration),
+    shortBreakDuration: clampInt(source.shortBreakDuration, 1, 60, DEFAULT_SETTINGS.shortBreakDuration),
+    longBreakDuration: clampInt(source.longBreakDuration, 1, 60, DEFAULT_SETTINGS.longBreakDuration),
+    longBreakInterval: clampInt(source.longBreakInterval, 1, 12, DEFAULT_SETTINGS.longBreakInterval),
+    autoStartBreaks: Boolean(source.autoStartBreaks),
+    autoStartFocus: Boolean(source.autoStartFocus),
+  };
+}
+
 export function usePomodoro(onFocusComplete: (duration: number) => void, onPartialFocus: (duration: number) => void) {
-  const [settings, setSettings] = useLocalStorage<TimerSettings>('pomodoro-settings', DEFAULT_SETTINGS);
+  const [storedSettings, setStoredSettings] = useLocalStorage<TimerSettings>('pomodoro-settings', DEFAULT_SETTINGS);
+  const settings = useMemo(() => sanitizeSettings(storedSettings), [storedSettings]);
   const [state, setState] = useState<TimerState>(() => ({
     mode: 'focus',
     timeLeft: DEFAULT_SETTINGS.focusDuration * 60,
@@ -51,6 +69,15 @@ export function usePomodoro(onFocusComplete: (duration: number) => void, onParti
     }
   }, [settings]);
 
+  useEffect(() => {
+    setState(prev => {
+      if (prev.isRunning || prev.currentSessionElapsed !== 0) return prev;
+      const duration = getDurationForMode(prev.mode);
+      if (prev.timeLeft === duration) return prev;
+      return { ...prev, timeLeft: duration };
+    });
+  }, [getDurationForMode]);
+
   // Timer tick
   useEffect(() => {
     if (state.isRunning) {
@@ -59,7 +86,6 @@ export function usePomodoro(onFocusComplete: (duration: number) => void, onParti
           if (prev.timeLeft <= 1) {
             // Timer completed
             const completedMode = prev.mode;
-            const elapsed = prev.currentSessionElapsed;
 
             if (completedMode === 'focus') {
               onFocusComplete(settings.focusDuration * 60);
@@ -154,28 +180,21 @@ export function usePomodoro(onFocusComplete: (duration: number) => void, onParti
     });
   }, [getDurationForMode, onPartialFocus]);
 
-  const getDurationForModeForSettings = (mode: TimerMode, s: TimerSettings): number => {
-    switch (mode) {
-      case 'focus': return s.focusDuration * 60;
-      case 'shortBreak': return s.shortBreakDuration * 60;
-      case 'longBreak': return s.longBreakDuration * 60;
-    }
-  };
-
   const updateSettings = useCallback((newSettings: Partial<TimerSettings>) => {
-    setSettings(prev => {
-      const updated = { ...prev, ...newSettings };
-      // Update timeLeft if settings changed for current mode
+    setStoredSettings(prev => {
+      const updated = sanitizeSettings({ ...prev, ...newSettings });
       setState(current => {
-        const currentDuration = getDurationForModeForSettings(current.mode, updated);
-        if (!current.isRunning) {
-          return { ...current, timeLeft: currentDuration };
-        }
-        return current;
+        if (current.isRunning || current.currentSessionElapsed !== 0) return current;
+        const minutes = current.mode === 'focus'
+          ? updated.focusDuration
+          : current.mode === 'shortBreak'
+            ? updated.shortBreakDuration
+            : updated.longBreakDuration;
+        return { ...current, timeLeft: minutes * 60 };
       });
       return updated;
     });
-  }, [setSettings]);
+  }, [setStoredSettings]);
 
   return {
     state,
